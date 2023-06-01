@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-for charac in reversed(range(97, 123)):
-    print("{:c}".format(charac if (charac % 2 == 0) else (charac - 32)))
+for ch in reversed(range(97, 123)):
+    print("{:c}".format(ch if (ch % 2 == 0) else (ch - 32)), end='')

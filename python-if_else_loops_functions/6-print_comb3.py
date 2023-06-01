@@ -4,4 +4,4 @@ for number in range(0, 98):
                 if number != 89:
                         print("{:02d}".format(number), end=', ')
                 else:
-                        print("{:02d}".format(number))
+                        print("{:02d}".format(number), end='\n')

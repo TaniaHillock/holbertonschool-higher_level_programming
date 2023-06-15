@@ -6,12 +6,9 @@ class Square:
     "This is a Square"""
     pass
 
-
     def __init__(self, size=0):
-        """ Method to initialize the square object
-        
-        Args:
-            size(int): The size """
+        """ Method to initialize the square object.
+Args size(int): The size """
         self.__size = size
         self.__validate_size()
 
@@ -25,4 +22,3 @@ class Square:
             raise TypeError("size must be an integer")
         elif self.__size < 0:
             raise ValueError("size must be >= 0")
-        

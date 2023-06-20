@@ -11,4 +11,3 @@ class LockedClass:
     def __init__(self):
         """ Init method """
         pass
-    

@@ -10,4 +10,3 @@ class MyList(list):
         l_sorted = self.copy()
         l_sorted.sort()
         print(l_sorted)
-        return(l_sorted)

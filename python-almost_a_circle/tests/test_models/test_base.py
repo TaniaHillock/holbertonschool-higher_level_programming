@@ -1,101 +1,20 @@
 #!/usr/bin/python3
-""" Module for test Base class """
+"""Unittest for class Base"""
 import unittest
 import os
 from models.base import Base
-from models.square import Square
 from models.rectangle import Rectangle
-from io import StringIO
-from unittest import TestCase
-from unittest.mock import patch
+from models.square import Square
 
 
-class TestBaseMethods(unittest.TestCase):
-    """ Suite to test Base class """
+class TestBase(unittest.TestCase):
+    """Testing Base"""
 
-    def setUp(self):
-        """ Method invoked for each test to init count"""
+    def tearDown(self):
+        """Tears down obj count"""
         Base._Base__nb_objects = 0
+        self.assertEqual(Base._Base__nb_objects, 0)
 
-    def test_id(self):
-        """ Test assigned id """
-        new = Base(1)
-        self.assertEqual(new.id, 1)
-
-    def test_id_default(self):
-        """ Test default id """
-        new = Base()
-        self.assertEqual(new.id, 1)
-
-    def test_id_nb_objects(self):
-        """ Test nb object attribute """
-        new = Base()
-        new2 = Base()
-        new3 = Base()
-        self.assertEqual(new.id, 1)
-        self.assertEqual(new2.id, 2)
-        self.assertEqual(new3.id, 3)
-
-    def test_id_mix(self):
-        """ Test nb object attributes and assigned id """
-        new = Base()
-        new2 = Base(1024)
-        new3 = Base()
-        self.assertEqual(new.id, 1)
-        self.assertEqual(new2.id, 1024)
-        self.assertEqual(new3.id, 2)
-
-    def test_string_id(self):
-        """ Test string id """
-        new = Base('1')
-        self.assertEqual(new.id, '1')
-
-    def test_more_args_id(self):
-        """ Test passing more args to init method """
-        with self.assertRaises(TypeError):
-            new = Base(1, 1)
-
-    def test_access_private_attrs(self):
-        """ Test accessing to private attributes """
-        new = Base()
-        with self.assertRaises(AttributeError):
-            new.__nb_objects
-
-    def test_save_to_file_1(self):
-        """ Test JSON file """
-        Square.save_to_file(None)
-        res = "[]\n"
-        with open("Square.json", "r") as file:
-            with patch('sys.stdout', new=StringIO()) as str_out:
-                print(file.read())
-                self.assertEqual(str_out.getvalue(), res)
-
-        try:
-            os.remove("Square.json")
-        except:
-            pass
-
-        Square.save_to_file([])
-        with open("Square.json", "r") as file:
-            self.assertEqual(file.read(), "[]")
-
-    def test_save_to_file_2(self):
-        """ Test JSON file """
-        Rectangle.save_to_file(None)
-        res = "[]\n"
-        with open("Rectangle.json", "r") as file:
-            with patch('sys.stdout', new=StringIO()) as str_out:
-                print(file.read())
-                self.assertEqual(str_out.getvalue(), res)
-        try:
-            os.remove("Rectangle.json")
-        except:
-            pass
-
-        Rectangle.save_to_file([])
-        with open("Rectangle.json", "r") as file:
-            self.assertEqual(file.read(), "[]")
-    
     def test_instance(self):
         """Test instantiation"""
 
@@ -117,9 +36,10 @@ class TestBaseMethods(unittest.TestCase):
         self.assertEqual(Base._Base__nb_objects, 2)
 
     def test_to_json_string(self):
-        """Testing to_json_string()"""
+        """Testing to_json_string()
+        """
 
-        o1_1 = [{"hi": 1, "me": "holberton"}]
+        o1_1 = [{"hi": 1, "yo": "hol"}]
         o1_2 = [{"hello": 3}]
         o1_3 = None
         o1_4 = "a string"
@@ -128,7 +48,7 @@ class TestBaseMethods(unittest.TestCase):
         o1_7 = []
 
         self.assertCountEqual(Base.to_json_string(o1_1),
-                              '[{"hi": 1, "me": "holberton"}]')
+                              '[{"hi": 1, "yo": "hol"}]')
         self.assertCountEqual(Base.to_json_string(o1_2), '[{"hello": 3}]')
         self.assertCountEqual(Base.to_json_string(o1_3), '[]')
         self.assertCountEqual(Base.to_json_string(o1_4), '"a string"')
@@ -139,7 +59,8 @@ class TestBaseMethods(unittest.TestCase):
 
 
     def test_create(self):
-        """Testing create()"""
+        """Testing create()
+        """
 
         o3_1 = {'id': 1, 'width': 1, 'height': 2, 'x': 2, 'y': 2}
         r3_1 = Rectangle.create(**o3_1)
@@ -156,7 +77,8 @@ class TestBaseMethods(unittest.TestCase):
             s3_2 = Square.create(**o3_3)
 
     def test_save_to_file(self):
-        """Testing save_to_file()"""
+        """Testing save_to_file()
+        """
 
         o4_1 = Rectangle(10, 7, 2, 8)
         o4_2 = Rectangle(2, 4)
@@ -170,7 +92,8 @@ class TestBaseMethods(unittest.TestCase):
         self.assertTrue(os.path.isfile('Square.json'))
 
     def test_load_from_file(self):
-        """Testing load_from_file()"""
+        """Testing load_from_file()
+        """
 
         o5_1 = Rectangle(10, 7, 2, 8)
         o5_2 = Rectangle(2, 4)

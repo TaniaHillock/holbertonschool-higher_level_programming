@@ -1,21 +1,20 @@
 #!/usr/bin/python3
 """
-Lists all states with a name starting with N
+db_connection will stablish the connection with the data base.
+cursor creates a cursor to interact with the data base
+cursor_leng shows the number of items that the object contains
+list_1 converts the object into an iterable list
+
 """
 import sys
 import MySQLdb
-
-if __name__ == '__main__':
-    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2],
-                         db=sys.argv[3], port=3306)
-
-    cur = db.cursor()
-    cur.execute("SELECT * \
-    FROM states \
-    WHERE CONVERT(`name` USING Latin1) \
-    COLLATE Latin1_General_CS \
-    LIKE 'N%';")
-    states = cur.fetchall()
-
-    for state in states:
-        print(state)
+if __name__ == "__main__":
+    db_connection = MySQLdb.connect(host="localhost", port=3306,
+                                    user=sys.argv[1], passwd=sys.argv[2],
+                                    db=sys.argv[3])
+    cursor = db_connection.cursor()
+    cursor_leng = cursor.execute("SELECT * FROM states ORDER BY states.id")
+    list_1 = list(cursor)
+    for item in range(0, cursor_leng):
+        if list_1[item][1][0] == 'N':
+            print(list_1[item])

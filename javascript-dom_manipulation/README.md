@@ -13,6 +13,7 @@ Read or watch:
 * [Manipulating documents](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents)
 * [Fetching data from the server](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data)
 * [What went wrong? Troubleshooting JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_went_wrong)
+* [Free Courses](https://www.scaler.com/topics/javascript-dom-manipulation/)
 ## Learning Objectives
 * How to select HTML elements in JavaScript
 * What are differences between ID, class and tag name selectors

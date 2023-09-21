@@ -1,4 +1,20 @@
 # JavaScript - Web jQuery
+## Resources
+   Read or watch:
+ * [What is JavaScript?](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript)
+ * [Selector](https://jquery-tutorial.net/selectors/using-elements-ids-and-classes/)
+ * [Get and set content](https://jquery-tutorial.net/dom-manipulation/getting-and-setting-content/)
+ * [Manipulate CSS classes](https://jquery-tutorial.net/dom-manipulation/getting-and-setting-css-classes/)
+ * [Introduction to the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
+ * [Manipulate DOM elements](https://jquery-tutorial.net/dom-manipulation/the-append-and-prepend-methods/)
+ * [API](https://oscarotero.com/jquery/)
+ * [Introduction to AJAX](https://jquery-tutorial.net/ajax/introduction/)
+ * [GET & POST request](https://jquery-tutorial.net/ajax/the-get-and-post-methods/)
+ * [JQuery Ajax Tutorial#1 -Using AJAX &API´s](https://youtu.be/fEYx8dQr_cQ?si=ErrHfiq7IWWbeEk0)
+ * [What went wrong?](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_went_wrong)
+ * [JQuery](https://jquery.com/)
+ * [JQuery API](https://api.jquery.com/)
+ * [JQuery Ajax](https://learn.jquery.com/ajax/)
 ## Learning Objectives
  * Why JQuery make front-end programming so easy
  * How to select HTML elements in JavaScript
